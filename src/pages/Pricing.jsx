@@ -74,20 +74,25 @@ const Pricing = () => {
           
           {/* Toggle with smooth switch animation */}
           <div className="flex flex-col items-center gap-3 sm:gap-4">
-            <div className="bg-dark-800 border-2 border-white/5 p-1.5 rounded-2xl flex items-center relative w-full max-w-[320px] sm:max-w-none sm:w-auto">
-              {['monthly', 'yearly'].map((type) => (
-                <button
-                  key={type}
-                  onClick={() => setBillingCycle(type)}
-                  className={`relative z-10 px-6 sm:px-8 md:px-10 py-2.5 sm:py-3 rounded-xl text-xs sm:text-sm font-black uppercase tracking-widest transition-colors duration-500 ${billingCycle === type ? 'text-dark-900' : 'text-gray-500'}`}
-                >
-                  {type}
-                </button>
-              ))}
+            <div className="bg-dark-800 border-2 border-white/5 p-1.5 rounded-2xl grid grid-cols-2 relative w-full max-w-[280px] sm:max-w-xs">
+              <button
+                onClick={() => setBillingCycle('monthly')}
+                className={`relative z-10 px-6 sm:px-8 md:px-10 py-2.5 sm:py-3 rounded-xl text-xs sm:text-sm font-black uppercase tracking-widest transition-colors duration-300 ${billingCycle === 'monthly' ? 'text-dark-900' : 'text-gray-500'}`}
+              >
+                Monthly
+              </button>
+              <button
+                onClick={() => setBillingCycle('yearly')}
+                className={`relative z-10 px-6 sm:px-8 md:px-10 py-2.5 sm:py-3 rounded-xl text-xs sm:text-sm font-black uppercase tracking-widest transition-colors duration-300 ${billingCycle === 'yearly' ? 'text-dark-900' : 'text-gray-500'}`}
+              >
+                Yearly
+              </button>
               <motion.div 
-                className="absolute bg-white rounded-xl h-[calc(100%-12px)] top-1.5 left-1.5"
+                className="absolute bg-white rounded-xl h-[calc(100%-12px)] w-[calc(50%-6px)] top-1.5 left-1.5"
                 initial={false}
-                animate={{ x: billingCycle === 'monthly' ? 0 : '100%', width: 'calc(50% - 6px)' }}
+                animate={{ 
+                  x: billingCycle === 'monthly' ? 0 : 'calc(100% + 6px)'
+                }}
                 transition={{ type: "spring", stiffness: 300, damping: 30 }}
               />
             </div>
