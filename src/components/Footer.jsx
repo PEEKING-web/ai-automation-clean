@@ -100,7 +100,7 @@ const Footer = () => {
             <div className="mt-8">
               <p className="text-[10px] text-gray-600 font-bold uppercase tracking-widest leading-loose">
                 Established 2026 <br />
-                San Francisco, CA
+                Mumbai
               </p>
             </div>
           </div>
